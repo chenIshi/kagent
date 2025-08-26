@@ -1,0 +1,17 @@
+apiVersion: kagent.dev/v1alpha1
+kind: ModelConfig
+metadata:
+  name: ollama-model-config
+  namespace: kagent
+spec:
+  provider: Ollama
+  model: llama3
+  modelInfo:
+    family: unknown
+    functionCalling: true
+    jsonOutput: true
+    multipleSystemMessages: false
+    structuredOutput: true
+    vision: false
+  ollama:
+    host: "http://localhost:8080"
