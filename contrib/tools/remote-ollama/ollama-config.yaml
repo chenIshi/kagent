@@ -1,17 +1,10 @@
 apiVersion: kagent.dev/v1alpha1
 kind: ModelConfig
 metadata:
-  name: ollama-model-config
+  name: default-model-config
   namespace: kagent
 spec:
-  provider: Ollama
-  model: llama3
-  modelInfo:
-    family: unknown
-    functionCalling: true
-    jsonOutput: true
-    multipleSystemMessages: false
-    structuredOutput: true
-    vision: false
+  model: gpt-oss:20b
   ollama:
-    host: "http://localhost:8080"
+    host: http://localhost:8080
+  provider: Ollama

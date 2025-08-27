@@ -27,6 +27,7 @@ Extended from the original local [ollama deployment](../../../helm/README.md), b
     (Might need to first install dependency before the install, need to check the logs here)
 3. Redirect the LLM to your remote Ollama instance
    Remember to at least update the last line of `ollama-config.yaml` fitting to your testbed setting.
+   Also check the `model` if it matching your LLM model used.
    ```console
    ~/git/kagent$ kubectl apply -f ./contrib/tools/remote-ollama/ollama-config.yaml
    ```
@@ -46,6 +47,6 @@ Extended from the original local [ollama deployment](../../../helm/README.md), b
 
    Then on the another terminal do
    ```console
-   $ curl -X POST http://localhost:8083/api/a2a/kagent/helm-agent/invoke -H 'Content-Type: application/json' -d '{"jsonrpc": "2.0", "id": "1", "method": "message/send", "params": {"message": {"role": "user", "parts": [{"kind": "text", "data": [PROMPT]}]}}}'
+   $ curl -X POST   http://localhost:8083/api/a2a/kagent/helm-agent/invoke   -H 'Content-Type: application/json'   -d '{"jsonrpc": "2.0", "id": "1", "method": "message/send", "params": {"message": {"role": "user", "parts": [{"kind": "text", "data": "What is the result of 2 + 2 ?"}]}}}'
    ```
    Replace the [PROMPT] with your prompt
